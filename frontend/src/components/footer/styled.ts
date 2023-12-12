@@ -1,22 +1,33 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  text-align: center;
-  padding: 2rem 0;
-  background-color: ${({ theme }) => theme.colors.background};
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    background-color: ${({ theme }) => theme.colors.grey};
+    padding: 0 2rem;
 `;
 
-export const LogoButton = styled.a`
-  display: block;
-  margin-bottom: 0.19rem;
+export const LogoBox = styled.div`
+    width: 75px;
+    text-align: center;
 `;
 
 export const List = styled.ul`
-  display: flex;
-  justify-content: center;
-  list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
 `;
 
 export const ListItem = styled.li`
-  margin: 0 0.5rem;
+    margin-left: 5rem;
+    svg {
+        width: 35px;
+        height: 35px;
+    }
 `;

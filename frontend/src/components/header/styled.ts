@@ -1,20 +1,27 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.headerBg};
+    display: flex;
+    background-color: ${({ theme }) => theme.colors.grey};
 `;
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  max-width: 71rem;
-  min-width: 71rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+`;
 
-  @media (max-width: 575px) {
-    min-width: 22rem;
-  }
+export const IconContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    gap: 40px;
+
+    svg {
+        width: 45px;
+        height: 35px;
+        cursor: pointer;
+    }
 `;

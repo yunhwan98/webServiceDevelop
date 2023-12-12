@@ -4,16 +4,20 @@ import { DefaultTheme } from "styled-components";
 import { common } from "./common";
 
 const light: DefaultTheme = {
-  colors: {
-    ...common.colors,
-    toggleBorder: "#ABB7C4",
-    gradient: "linear-gradient(#39598A, #79D7ED)",
-    background: "#282C34",
-    headerBg: "#20232A",
-    cardsBg: "#FFFFFF",
-    textColor: "#000000",
-    dodgerBlue: "#007BFF",
-  },
+    colors: {
+        ...common.colors,
+        toggleBorder: "#ABB7C4",
+        gradient: "linear-gradient(#39598A, #79D7ED)",
+        background: "#282C34",
+        headerBg: "#20232A",
+        cardsBg: "#FFFFFF",
+        textColor: "#000000",
+        dodgerBlue: "#007BFF",
+    },
+    breakpoints: {
+        TABLETMIN: `screen and (min-width: 768px)`,
+        DESKTOPMIN: `screen and (min-width: 1140px)`,
+    },
 };
 
 export { light };

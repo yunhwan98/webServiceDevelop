@@ -1,23 +1,28 @@
 // #region Global Imports
 import "styled-components";
 // #endregion Global Imports
-type CommonColors = "transparent" | "darkGrey" | "blackGrey" | "white";
+type CommonColors = "transparent" | "darkGrey" | "blackGrey" | "white" | "grey";
 
 type ExtendedColors =
-  | CommonColors
-  | "toggleBorder"
-  | "gradient"
-  | "background"
-  | "headerBg"
-  | "cardsBg"
-  | "textColor"
-  | "dodgerBlue";
-declare module "styled-components" {
-  export interface BaseTheme {
-    colors: Record<CommonColors, string>;
-  }
+    | CommonColors
+    | "toggleBorder"
+    | "gradient"
+    | "background"
+    | "headerBg"
+    | "cardsBg"
+    | "textColor"
+    | "dodgerBlue";
 
-  export interface DefaultTheme extends BaseTheme {
-    colors: Record<ExtendedColors, string>;
-  }
+declare module "styled-components" {
+    export interface BaseTheme {
+        colors: Record<CommonColors, string>;
+    }
+
+    export interface DefaultTheme extends BaseTheme {
+        colors: Record<ExtendedColors, string>;
+        breakpoints: {
+            TABLETMIN: string;
+            DESKTOPMIN: string;
+        };
+    }
 }

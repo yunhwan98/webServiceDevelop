@@ -1,6 +1,10 @@
 import React from "react";
-import { Container } from "./styled";
+import { Container, SubContainer } from "./styled";
 
 export const Wrapper: React.FC = ({ children }) => {
-  return <Container>{children}</Container>;
+    return (
+        <Container>
+            <SubContainer>{children}</SubContainer>
+        </Container>
+    );
 };
