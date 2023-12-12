@@ -1,71 +1,17 @@
-# frontend
+# webServiceDevelop
 
-This project was generated with [superplate](https://github.com/pankod/superplate).
+webServideDevelop
 
-## Getting Started
+# front - home
 
-superplate is a Next.js all-in-one project generator. Create your project with the tools you need without spending hours on setting them up.
+## styling
 
-## Available Scripts
+styled-components
 
-### Running the development server.
+-   기능
+    -   CSS in JS 스타일링 기능
+    -   레이아웃 및 테마 설정
+-   설명
+    -   JS 안에 CSS 를 작성하는 것을 의미하며, props를 전달 받는 것이 가능하기 대문에 재사용 가능한 컴포넌트 생성에 유리
 
-```bash
-    npm run dev
-```
-
-### Building for production.
-
-```bash
-    npm run build
-```
-
-### Running the production server.
-
-```bash
-    npm run start
-```
-
-## Learn More
-
-To learn more about **superplate**, please check out the [Documentation](https://github.com/pankod/superplate).
-
-### **Styled Components**
-
-Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, styled-components allows you to write actual CSS code to style your components.
-
-[Go To Documentation](https://styled-components.com/docs)
-
-### **Axios**
-
-Promise based HTTP client for the browser and node.js.
-
-[Go To Documentation](https://github.com/axios/axios)
-
-### **React Query**
-
-Hooks for fetching, caching and updating asynchronous data in React.
-
-[Go To Documentation](https://react-query.tanstack.com/overview)
-
-### **Recoil**
-
-Recoil works and thinks like React. Add some to your app and get fast and flexible shared state.
-
-[Go To Documentation](https://recoiljs.org/docs/introduction/installation)
-
-### **ESLint**
-
-A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
-
-[Go To Documentation](https://eslint.org/docs/user-guide/getting-started)
-
-### **Prettier**
-
-An opinionated code formatter; Supports many languages; Integrates with most editors.
-
-[Go To Documentation](https://prettier.io/docs/en/index.html)
-
-## License
-
-MIT
+---
