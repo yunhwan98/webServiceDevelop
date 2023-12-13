@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     background-color: ${({ theme }) => theme.colors.grey};
+    height: 80px;
 `;
 
 export const Container = styled.div`
