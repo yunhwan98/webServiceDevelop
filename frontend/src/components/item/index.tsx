@@ -1,10 +1,19 @@
 import React from "react";
 import { Container } from "./styled";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-export const Item: React.FC = () => {
+type ItemProps = {
+    id: string;
+};
+
+export const Item: React.FC<ItemProps> = ({ id }) => {
+    const router = useRouter();
+    const onClickItem = () => {
+        router.push(`/detail/${id}`);
+    };
     return (
-        <Container>
+        <Container onClick={onClickItem}>
             <div className="img_box">
                 <Image
                     src="/img.png"
