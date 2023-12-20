@@ -17,6 +17,8 @@ import {
     IconPlus,
     IconUnCheck,
 } from "@public/icons";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { cartListAtom } from "@recoil/atoms";
 
 type data = {
     id: number;
@@ -26,22 +28,21 @@ type data = {
 };
 
 type CartItemProps = {
-    data: data;
-    cartList: data[];
-    setCartList: React.Dispatch<React.SetStateAction<data[]>>;
+    id: number;
     onClickDeleteItem: (id: number) => void;
 };
 
 export const CartItem: React.FC<CartItemProps> = ({
-    data,
-    cartList,
-    setCartList,
+    id,
     onClickDeleteItem,
 }) => {
-    const [count, setCount] = useState<number>(1);
+    const [cartList, setCartList] = useRecoilState(cartListAtom);
+
+    const data = useRecoilValue(cartListAtom).find(
+        (it) => it.id === id,
+    ) as data;
 
     const onClickCountPlus = () => {
-        // setCount((prev) => prev + 1);
         const editedList = cartList.map((it) => {
             return it.id === data.id ? { ...it, count: it.count + 1 } : it;
         });
@@ -49,9 +50,6 @@ export const CartItem: React.FC<CartItemProps> = ({
     };
 
     const onClickCountMinus = () => {
-        // if (count > 1) {
-        //     setCount((prev) => prev - 1);
-        // }
         if (data.count > 1) {
             const editedList = cartList.map((it) => {
                 return it.id === data.id ? { ...it, count: it.count - 1 } : it;
@@ -97,7 +95,7 @@ export const CartItem: React.FC<CartItemProps> = ({
                         <div>{data.count}</div>
                         <IconPlus onClick={onClickCountPlus} />
                     </Count>
-                    {count * data.price}원
+                    {data.count * data.price}원
                 </Counter>
             </CounterBox>
         </Container>

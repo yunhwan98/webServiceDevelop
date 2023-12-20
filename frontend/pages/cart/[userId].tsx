@@ -6,27 +6,25 @@ import { useRouter } from "next/router";
 import { CartList, Container, PayInfo, SelectBox } from "./styled";
 import { IconCheck, IconUnCheck } from "@public/icons";
 import { CartItem } from "@components/cartitem";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { TotalPriceSelector, cartListAtom } from "@recoil/atoms";
 
-type data = {
-    id: number;
-    price: number;
-    check: boolean;
-    count: number;
-};
+// type data = {
+//     id: number;
+//     price: number;
+//     check: boolean;
+//     count: number;
+// };
 
 const Cart: React.FC = () => {
     const router = useRouter();
     const { id } = router.query;
-
-    const dummydata = [
-        { id: 1, price: 10000, check: false, count: 1 },
-        { id: 2, price: 1000, check: false, count: 1 },
-        { id: 3, price: 200, check: false, count: 1 },
-    ];
-
     const [checkAll, setCheckAll] = useState<boolean>(false);
 
-    const [cartList, setCartList] = useState<data[]>(dummydata);
+    //const [cartList, setCartList] = useState<data[]>(dummydata);
+    const [cartList, setCartList] = useRecoilState(cartListAtom);
+
+    const totalPrice = useRecoilValue(TotalPriceSelector);
 
     const onClickCheckAll = () => {
         setCheckAll((prev) => !prev);
@@ -69,9 +67,7 @@ const Cart: React.FC = () => {
                     {cartList.map((it) => (
                         <CartItem
                             key={it.id}
-                            data={it}
-                            cartList={cartList}
-                            setCartList={setCartList}
+                            id={it.id}
                             onClickDeleteItem={onClickDeleteItem}
                         />
                     ))}
@@ -95,7 +91,7 @@ const Cart: React.FC = () => {
                     ))}
 
                     <div>
-                        총결제금액 <span>10000원</span>
+                        총결제금액 <span>{totalPrice}원</span>
                     </div>
                     <button>구매하기</button>
                 </PayInfo>

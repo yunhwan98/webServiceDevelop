@@ -1,5 +1,5 @@
 import { Atoms } from "@recoil/constants";
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 /**
  * This file is generated as an example of Recoil Atoms
@@ -9,6 +9,23 @@ import { atom } from "recoil";
  */
 
 export const counter = atom({
-  key: Atoms.Counter,
-  default: 0,
+    key: Atoms.Counter,
+    default: 0,
+});
+
+export const cartListAtom = atom({
+    key: "cartListAtom",
+    default: [
+        { id: 1, price: 10000, check: false, count: 1 },
+        { id: 2, price: 1000, check: false, count: 1 },
+        { id: 3, price: 200, check: false, count: 1 },
+    ],
+});
+
+export const TotalPriceSelector = selector({
+    key: "TotalPriceSelector",
+    get: ({ get }) => {
+        const cartList = get(cartListAtom);
+        return cartList.reduce((acc, cur) => acc + cur.price * cur.count, 0);
+    },
 });
